@@ -1,12 +1,12 @@
 # Light the LED
-def light_led(input):
+def light_led(number):
     layer = 1
     
     while layer <= 5:
         leds_layer = get_leds_in_layer(layer)
         light = ""
         
-        for n in input:
+        for n in number:
             str_num = check_number(n)
             
             for i in leds_layer:
@@ -64,5 +64,15 @@ def get_leds_in_layer(layer):
     
     return leds_layer
 
-input = input("Enter number: ")
-light_led(input)
+number = ""
+
+while True:
+    number = input("Enter number: ")
+    
+    try:
+        int(number)
+        break
+    except ValueError:
+        continue
+
+light_led(number)
